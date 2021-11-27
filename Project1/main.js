@@ -13,11 +13,6 @@ class Utils {
         let temp = str.split(',');
         temp.forEach((el, index) => {
             el = Number(el);
-            if (!parseInt(el)) {
-                document.getElementById("result").innerHTML = "Non-integer data detected.";
-                return 0;
-            }
-
             temp[index] = el;
         });
         return temp;
@@ -63,7 +58,7 @@ class App {
         console.log("Done pressed.");
         // create table element
         var myTable = document.createElement("table"), row = myTable.insertRow(), cell;
-        // four cells per row
+        // five cells per row
         var perrow = 5;
         this.students.forEach((value, i) => { // get our data from the array
             // add cell
@@ -78,7 +73,7 @@ class App {
             cell = row.insertCell();
             cell.innerHTML = Student.school;
             // break into the next row
-            var next = i + 1;
+            var next = i;
             if (next % perrow == 0 && next != this.students.length) {
                 row = myTable.insertRow();
             }
@@ -90,17 +85,27 @@ class App {
 
     onClick(e) {
         e.preventDefault();
+        document.getElementById("school").value = Student.school;
         let name = document.querySelector("#name").value;
         let grades = document.querySelector("#grades").value;
         let computer = document.querySelector("#computer").value;
         let gradesArr = Utils.convertToInt(grades);
-        let average = Utils.getAverage(gradesArr);
-        let student = new Student(name, grades, average, computer);
-        this.students.push(student);
-        console.log(this.students);
-        document.getElementById("result").innerHTML = "Student Accepted.";
-        let form = document.getElementById('form');
-        form.reset();
+        if (!parseInt(grades)) { // if what we enter for grades isn't valid integers in any way...
+            document.getElementById("result").innerHTML = "Non-integer data detected - please use numbers for Grades."; // nope.
+            document.myform.reset();
+            this.onClick(e); // start over
+        }
+        else { // but if what we entered as grades are integers
+            let average = Utils.getAverage(gradesArr); // go ahead and compute an average
+            let student = new Student(name, grades, average, computer); // stuff this all into the object
+            this.students.push(student); // stuff the object into the the aray
+            console.log(this.students); // console ouput that it has been accepted.
+            document.getElementById("result").innerHTML = "Student Accepted."; // we're good
+            document.myform.reset();
+            document.getElementById("school").value = Student.school;
+        }
+
+
     }   
 }
 
