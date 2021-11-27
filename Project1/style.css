@@ -74,7 +74,7 @@ table tr td {
 	  font-size: smaller;
 }
     
-table tr:nth-child(odd) { 
+table tr:nth-child(odd) { /* display every even table row as off white */ 
 	background: #f4f4f4; 
 }
 
