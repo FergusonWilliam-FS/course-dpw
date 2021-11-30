@@ -41,6 +41,9 @@ class View {
     constructor() {
         console.log("view created");
     }
+    display(d) { // display results
+        console.log("The average grade is: " + d);
+    }
 }
 
 class Controller {
@@ -51,5 +54,6 @@ class Controller {
         var grades = [70, 80, 90];
         var result = this.model.process(grades);
         console.log(result);
+        this.view.display(result);
     }
 }
