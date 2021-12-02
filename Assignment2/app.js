@@ -1,6 +1,3 @@
-// event listener
-
-
 class Application {
     constructor() {
         console.log("singleton created");
@@ -42,7 +39,6 @@ class Student extends Person {
     
 }
 
-Student.school = "Full Sail University"; 
 
 
 class Controller {
