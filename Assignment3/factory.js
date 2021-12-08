@@ -15,8 +15,8 @@ class RobotFactory {
             return new Terminator()
         }
         else {
-            throw "I don't know how to create robot " + type + ".";
+            throw "Robot not found";
+
         }
-    }
-    
+    }   
 }

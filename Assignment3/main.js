@@ -18,7 +18,7 @@ class Application {
                 document.getElementById("result").innerHTML = "Robot " + robot + " successfully created.";
                 break;
             default:
-                window.alert("Don't know how to create that robot.");
+                document.getElementById("result").innerHTML = "Don't know " + robot + ". Sorry.";
                 document.myform.reset();
         }
     }
