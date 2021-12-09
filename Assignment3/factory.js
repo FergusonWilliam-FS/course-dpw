@@ -15,8 +15,7 @@ class RobotFactory {
             return new Terminator()
         }
         else {
-            throw "Unable to create robot " + type + ".";
-
+            return -1;
         }
     }   
 }

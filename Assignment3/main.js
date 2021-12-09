@@ -4,42 +4,31 @@ class Application {
         document.querySelector("#btnSubmit").addEventListener("click", (e) => this.submitClick(e));
         document.querySelector("#btnView").addEventListener("click", (e) => this.viewClick(e));
         this.rn = [];
-
     }
 
     submitClick(e) {
         e.preventDefault();
         console.log("sumbit here");
         let robot = document.querySelector("#robot").value;
-        switch (robot) {
-            case "dummy":
-            case "robbie":
-            case "terminator":
-                RobotFactory.CreateRobot(robot);
-                this.rn.push(robot);
-                console.log(this.rn.length);
-                document.getElementById("result").innerHTML = "Class " + robot + " successfully instantiated.";
-                break;
-            default:
-                document.getElementById("result").innerHTML = "Don't know " + robot + ". Sorry. Please refresh.";
-                document.myform.reset();
+        let factoryRobot = RobotFactory.CreateRobot(robot);
+        if (factoryRobot != "-1") {
+            this.rn.push(factoryRobot);
+            document.getElementById("result").innerHTML = "Class " + robot + " successfully instantiated.";
         }
+        else {
+            document.getElementById("result").innerHTML = "Crack kills!";
+        }
+        
     }
-
-    
-
 
     viewClick(e) {
         e.preventDefault();
         console.log("view here");
-        let rname = document.querySelector("#robot").value;
-        console.log("hi. i have " + rname + ".");
+        console.log("hi. i have " + this.rn + ".");
         for (let x = 0; x < this.rn.length; x++) {
             let image = new Image();
-            image.src = `./assets/${this.rn[x]}.jpeg`;
-            for (let y = 0; y < this.rn.length; y++) {
-                document.getElementById("result").innerHTML = "Robot " + this.rn[y] + " created.";
-            }
+            image.src = `./assets/${this.rn[x].image}.jpeg`;
+            document.getElementById("result").innerHTML = "Robot " + this.rn[x].image + " created.";
             document.body.appendChild(image);
         }
         
@@ -59,8 +48,6 @@ class Application {
     }
 
 }
-
-
 
 
 (function () {
