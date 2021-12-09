@@ -3,8 +3,7 @@
 class RobotFactory {
     constructor() {
         console.log("constructor created");
-        this.message = "Robot cannot be created."
-    }
+     }
     static CreateRobot(type) {
         if (type == "dummy") {
             return new Dummy()
@@ -16,7 +15,7 @@ class RobotFactory {
             return new Terminator()
         }
         else {
-            throw Error(this.message);
+            throw "Unable to create robot " + type + ".";
 
         }
     }   
