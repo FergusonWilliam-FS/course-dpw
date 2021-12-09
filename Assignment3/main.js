@@ -3,6 +3,7 @@ class Application {
         console.log("singleton created");
         document.querySelector("#btnSubmit").addEventListener("click", (e) => this.submitClick(e));
         document.querySelector("#btnView").addEventListener("click", (e) => this.viewClick(e));
+        this.rn = [];
 
     }
 
@@ -15,23 +16,33 @@ class Application {
             case "robbie":
             case "terminator":
                 RobotFactory.CreateRobot(robot);
-                document.getElementById("result").innerHTML = "Robot " + robot + " successfully created.";
+                this.rn.push(robot);
+                console.log(this.rn.length);
+                document.getElementById("result").innerHTML = "Class " + robot + " successfully instantiated.";
                 break;
             default:
-                document.getElementById("result").innerHTML = "Don't know " + robot + ". Sorry.";
+                document.getElementById("result").innerHTML = "Don't know " + robot + ". Sorry. Please refresh.";
                 document.myform.reset();
         }
     }
+
+    
 
 
     viewClick(e) {
         e.preventDefault();
         console.log("view here");
         let rname = document.querySelector("#robot").value;
-        console.log("hi. i got " + rname + " here.");
-        let image = new Image();
-        image.src = `./assets/${rname}.jpeg`;
-        document.body.appendChild(image);
+        console.log("hi. i have " + rname + ".");
+        for (let x = 0; x < this.rn.length; x++) {
+            let image = new Image();
+            image.src = `./assets/${this.rn[x]}.jpeg`;
+            for (let y = 0; y < this.rn.length; y++) {
+                document.getElementById("factory").innerHTML = "Robot " + this.rn[y] + " created.";
+            }
+            document.body.appendChild(image);
+        }
+        
     }
 
     static getInstance()
@@ -43,10 +54,12 @@ class Application {
         }
         else
         {
-            throw "Attempt to create a second Singleton not allowed. Aborting.";
+            Error("Attempt to create a second Singleton not allowed. Aborting.");
         }
     }
+
 }
+
 
 
 
