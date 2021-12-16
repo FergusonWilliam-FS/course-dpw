@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Final</title>
+</head>
+<body>
+    <header>
+        <h1>Final</h1>
+    </header>
+    <section id="in">
+        <h2>Grades Form</h2>
+        <form method="POST">
+            <ul>
+                <li>
+                    <label for="grade1">Grade 1:</label>
+                    <input type="text" placeholder="First Grade Value" id="grade1">
+                </li>
+                <li>
+                    <label for="grade2">Grade 2: </label>
+                    <input type="text" placeholder="Second Grade Value" id="grade2">
+                </li>
+                <li>
+                    <label for="grade3">Grade 3:</label>
+                    <input type="text" placeholder="Third Grade Value" id="grade3">
+                </li>
+                <li>
+                    <button id="btn">Chart Grades</button>
+                </li>
+            </ul>
+        </form>
+    </section>
+    <section id="out">
+        <h2>Output</h2>
+        <!-- someone set us up the canvas -->
+        <canvas id="chart">
+        <!-- javascript executes here -->
+        </canvas>
+    </section>
+    <script src="main.js"></script>
+    <script src="util.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</body>
+</html>
