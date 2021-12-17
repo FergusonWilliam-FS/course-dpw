@@ -51,6 +51,7 @@ class Model {
     calc(e) {
         let average = Utils.getAverage(e.data.grades);
         e.data.average = average;
+        console.log(average);
         let event = new Event("viewEvent");
         event.data = e.data;
         document.dispatchEvent(event);
@@ -81,18 +82,17 @@ class View {
                   data: yValues
               }]
             },
-            scales: {
-                yValues: {
-                    min: 0,
-                    max: 100,
-                }
-            },
             options: {
-              legend: {display: false},
-              title: {
-                display: true,
-                  text: "Average: " + e.data.average
-              }
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{ ticks: { min: 0, max: 100 } }],
+                },
+                title: {
+                    display: true,
+                    text: "Average: " + Math.round(e.data.average)
+                }
             }
           });
     }

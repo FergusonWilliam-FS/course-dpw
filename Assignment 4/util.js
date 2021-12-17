@@ -5,8 +5,9 @@ class Utils {
     static getAverage(arr) {
         var total = 0;
         arr.forEach(function (e) {
-            total += e;
+            total += Number(e);
         });
+        console.log(total);
         return total / arr.length;
     }
 }
