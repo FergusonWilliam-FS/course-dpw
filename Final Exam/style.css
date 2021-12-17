@@ -21,7 +21,7 @@ input {
 
 h1 {
 	font-family: "Press Start 2P";
-	font-size: 5rem;
+	font-size: 3rem;
 	text-shadow: 3px 3px black;
 	color: green;
 }
@@ -57,22 +57,4 @@ img {
 p {
 	font-size: large;
 	text-transform: uppercase;
-}
-
-table { 
-	border-collapse: collapse;
-	table-layout: fixed;
-	width: 100%;
-}
-    
-table tr td {
-      border: 1px solid #000;
-	  border-left: 3px solid #7b68ee;
-      padding: 25px;
-	  text-align: center;
-	  font-size: smaller;
-}
-    
-table tr:nth-child(odd) { /* display every even table row as off white */ 
-	background: #f4f4f4; 
 }

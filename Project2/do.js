@@ -15,3 +15,4 @@ var foodDO = new FoodDO();
 for (var p in foodDO) {
     console.log(p + ":" + foodDO[p]);
 }
+

@@ -114,7 +114,8 @@ class View {
                 document.body.appendChild(img_a);
                 break;
             default:
-                console.log("nope");
+                let error = "Movie not found!";
+                document.getElementById("title").innerHTML = error;
                 break;
         }
     }

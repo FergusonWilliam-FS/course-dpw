@@ -98,6 +98,7 @@ class Model {
     }
 }
 
+
 class View {
     constructor() {
         console.log("view here");
@@ -124,6 +125,8 @@ class View {
         document.getElementById("container").appendChild(myTable);
     } 
 }
+
+
 
 (function () {
     console.log("page loaded");

@@ -28,7 +28,7 @@ class Application {
         for (let x = 0; x < this.rn.length; x++) {
             let image = new Image();
             image.src = `./assets/${this.rn[x].image}.jpeg`;
-            document.getElementById("result").innerHTML = "Robot " + this.rn[x].image + " created.";
+            document.getElementById("result").innerHTML = this.rn[x].info;
             document.body.appendChild(image);
         }
         
