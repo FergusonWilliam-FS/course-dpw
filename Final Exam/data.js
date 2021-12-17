@@ -15,7 +15,7 @@
             rating: "PG-13"
         },
         {
-            title: "Aliens",
+            title: "Alien",
             duration: 86,
             rating: "R"
         }]

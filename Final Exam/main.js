@@ -87,6 +87,7 @@ class View {
     showResults(e) {
         e.preventDefault();
         let poster = ["starwars.jpg", "matrix.jpg", "alien.jpg"];
+        console.log(e.data.title);
         switch (e.data.title) {
             case "Star Wars":
                 let img_sw = new Image();
