@@ -68,9 +68,9 @@ class View {
     drawChart(e) {
         // start code here
         console.log(e.data.grades);
-        let barColors = ["red", "green", "blue"];
-        let xValues = ["Grade 1", "Grade 2", "Grade 3"];
-        let yValues = e.data.grades;
+        let barColors = ["red", "green", "blue"]; // bar colors
+        let xValues = ["Grade 1", "Grade 2", "Grade 3"]; // x value legend
+        let yValues = e.data.grades; // y value of array data.grades
         console.log("i have: " + yValues);
         
         new Chart("chart", {
@@ -87,11 +87,11 @@ class View {
                     display: false
                 },
                 scales: {
-                    yAxes: [{ ticks: { min: 0, max: 100 } }],
+                    yAxes: [{ ticks: { min: 0, max: 100 } }], // floor-ceiling of 0-100
                 },
                 title: {
                     display: true,
-                    text: "Average: " + Math.round(e.data.average)
+                    text: "Average: " + Math.round(e.data.average) // round up
                 }
             }
           });
